@@ -41,8 +41,16 @@
   }
 }
 
-header-font{
+.header-font{
   font-family: 'Nunito', sans-serif;
   font-size: 30;
 }
 
+.pad{
+  margin-top: 10;
+  
+}
+
+.mt-10 {
+  margin-top: 10 !important;
+}
