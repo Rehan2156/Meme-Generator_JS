@@ -18,6 +18,9 @@ class Meme extends Component{
                 const {memes} = response.data
                 this.setState({ allMemeImgs: memes })
             })
+
+            console.log(this.props.location.state);
+
     }
 
     handleSubmit=(event)=> {
@@ -59,7 +62,7 @@ class Meme extends Component{
 
 
             <div className="meme mb-sm-3 mb-md-6">
-                    <img src={this.props.image} alt="" className="img-fluid"/>
+                    <img src={this.props.location.state} alt="" className="img-fluid justify-content-center"/>
                     <h2 className="top col-sm-3 col-md-6">{this.state.topText}</h2>
                     <h2 className="bottom">{this.state.bottomText}</h2>
                 </div>    

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import { Modal,Image,Row,Container,Col,Button } from 'react-bootstrap';
 import Meme from './Meme';
+import {Link} from 'react-router-dom'
 
 
 class Select extends Component {
@@ -22,10 +23,14 @@ class Select extends Component {
             })
     }
 
-    dispMeme(){
-        console.log("hi");
-        this.setState({showMeme:false})
-    }
+    // dispMeme(){
+    //     console.log("hi");
+    //     this.setState({showMeme:false})
+    //     this.props.history.push({
+    //         pathname: '/meme',
+    //         data: this.state.randomImg // your data array of objects
+    //       })
+    // }
 
     showGrid(){
         this.setState({showMeme:true});
@@ -34,13 +39,17 @@ class Select extends Component {
 
     render() {
         const images = this.state.allMemeImgs.map(image => {
-            return <img src={image.url} className="gallery__img col-md-20 col-sm-3" onClick={()=>{this.dispMeme(); this.setState({randomImg:image.url})}}/>
+            return <Link className=" col-md-20 col-sm-3" to={{ 
+                pathname: "/meme", 
+                state: image.url
+               }}><img src={image.url} className="gallery__img" onClick={()=>{ this.setState({randomImg:image.url})}}/>
+               </Link>
          });
 
-         var screen=this.state.showMeme;
+        //  var screen=this.state.showMeme;
 
-         if(screen)
-         {
+        //  if(screen)
+        //  {
     return ( 
         <div className="container">
             <h1>Select a meme template</h1>
@@ -50,12 +59,12 @@ class Select extends Component {
         </div>
        
      );
-    }
-    else{
-        return(
-        <Meme image={this.state.randomImg}/>
-        );
-    }
+    // }
+    // else{
+    //     return(
+    //     <Meme image={this.state.randomImg}/>
+    //     );
+    // }
     }
 }
  

@@ -5,13 +5,22 @@ import Header from './Header';
 import Meme from './Meme'
 import 'react-bootstrap'
 import Select from './Select'
+import { 
+  BrowserRouter as Router, 
+  Route, 
+  Link, 
+  Switch 
+} from 'react-router-dom'; 
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Select/>
-    </div>
+    <Router>
+    <Header/>
+      <Switch> 
+              <Route exact path='/' component={Select}></Route> 
+              <Route exact path='/meme' component={Meme}></Route> 
+      </Switch> 
+    </Router>
   );
 }
 
